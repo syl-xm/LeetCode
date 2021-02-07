@@ -6,15 +6,15 @@
 
 function getNext(str) {
     const next = [0];
-    let now = 0;
+    let pos = 0;
 
     for (let i = 1; i < str.length;) {
-        if (str[now] === str[i]) {
-            now ++;
-            next[i] = now;
+        if (str[pos] === str[i]) {
+            pos ++;
+            next[i] = pos;
             i ++
-        } else if(now !== 0){
-            now = next[now - 1]
+        } else if(pos > 0){
+            pos = next[pos - 1] 
         } else {
             next[i] = 0;
             i ++;
@@ -57,3 +57,4 @@ var strStr = function(haystack, needle) {
     return index;
 };
 strStr("aabaaabaaac", "aabaaac");
+strStr("adcadcaddcadde", "adcadde");
